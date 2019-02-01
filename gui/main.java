@@ -1,11 +1,13 @@
 package gui;
 
 import model.Monde;
+import model.Surcouche;
 
 public class main {
 	public static void main(String[] a) {
 		Monde world = new Monde(10, 10, 0);
-		System.out.println(world);
-		new Fenetre(world);
+		Surcouche sur = new Surcouche(world);
+		// System.out.println(world);
+		new Fenetre(sur);
 	}
 }

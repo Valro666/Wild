@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import model.Monde;
 import model.Secteur;
+import model.Surcouche;
 
 public class Fenetre extends JFrame {
 
@@ -12,16 +13,18 @@ public class Fenetre extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	Surcouche sur = null;
 	Monde world = null;
 	Carte carte = null;
 
-	public Fenetre(Monde world) {
-		this.world = world;
-		carte = new Carte(world);
+	public Fenetre(Surcouche s) {
+		sur = s;
+		this.world = sur.getWorld();
+		carte = new Carte(sur);
 		this.setName("Jeu de la vie / Valro");
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(800, 800);
+		this.setSize(Option.getInstance().wfen, Option.getInstance().hfen);
 		this.add(carte);
 	}
 
