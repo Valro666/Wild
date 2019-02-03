@@ -2,12 +2,14 @@ package gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JButton;
 
 import model.Secteur;
 
-public class Zone extends JButton {
+public class Zone extends JButton implements Observer{
 
 	Secteur s;
 
@@ -35,7 +37,9 @@ public class Zone extends JButton {
 		int ox = 0;
 		int oy = 0;
 		int larg = this.getWidth() / 3;
-		int haut = this.getHeight() / 3;
+		int haut = 1 + this.getHeight() / 3;
+		// Font f = new Font("mini", 1, 12);
+		// g.setFont(f);
 		// bg
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -52,10 +56,17 @@ public class Zone extends JButton {
 		g.fillRect(ox + larg + larg, 0, larg, haut * s.rassacie);
 		// texte
 		g.setColor(Color.BLACK);
-		g.drawString(s.toString(), this.getWidth() / 2, this.getHeight() / 2);
+		g.drawString(s.toString(), 0, this.getHeight() / 2);
+
 		// box
-		g.setColor(Color.PINK);
+		g.setColor(Color.BLACK);
 		g.drawRect(0, 0, this.getWidth(), this.getHeight());
+	}
+
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

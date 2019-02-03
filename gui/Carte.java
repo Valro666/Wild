@@ -26,7 +26,12 @@ public class Carte extends JPanel {
 	public Carte(Surcouche s) {
 		// TODO Auto-generated constructor stub
 		sur = s;
-		this.setLayout(new GridLayout(sur.getWidth(), sur.getHeigth()));
+
+		GridLayout gl = new GridLayout(sur.getWidth(), sur.getHeigth());
+		// gl.setHgap(0);
+		// gl.setVgap(10);
+		// gl.
+		this.setLayout(gl);
 		tim = new Zone[sur.getWidth()][sur.getHeigth()];
 		for (int i = 0; i < sur.getWidth(); i++) {
 			for (int j = 0; j < sur.getHeigth(); j++) {
@@ -57,8 +62,6 @@ public class Carte extends JPanel {
 				Zone t = tim[i][j];
 
 				t = new Zone(sur.getSecteur()[i][j] + "", tmp);
-
-
 
 				// t.setForeground(Color.pink);
 				action ac = new action(t, tmp);

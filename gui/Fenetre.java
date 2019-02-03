@@ -21,7 +21,7 @@ public class Fenetre extends JFrame {
 		sur = s;
 		this.world = sur.getWorld();
 		carte = new Carte(sur);
-		this.setName("Jeu de la vie / Valro");
+		this.setName("Wild Groupe C");
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(Option.getInstance().wfen, Option.getInstance().hfen);
