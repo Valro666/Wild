@@ -18,10 +18,10 @@ public class Secteur {
 	public Secteur() {
 
 		Random r = new Random();
-
-		proie = r.nextInt(4);
-		rassacie = r.nextInt(4);
-		affame = r.nextInt(4);
+		int nb_max = 5;
+		proie = r.nextInt(nb_max);
+		rassacie = r.nextInt(nb_max);
+		affame = r.nextInt(nb_max);
 
 	}
 

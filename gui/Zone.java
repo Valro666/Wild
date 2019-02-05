@@ -32,12 +32,12 @@ public class Zone extends JButton implements Observer{
 	}
 
 	public void paint(Graphics g) {
-		int v = 255 / 3;
+		int v = 255 / 4;
 
 		int ox = 0;
 		int oy = 0;
 		int larg = this.getWidth() / 3;
-		int haut = 1 + this.getHeight() / 3;
+		int haut = 1 + this.getHeight() / 4;
 		// Font f = new Font("mini", 1, 12);
 		// g.setFont(f);
 		// bg
