@@ -9,7 +9,7 @@ import javax.swing.JButton;
 
 import model.Secteur;
 
-public class Zone extends JButton implements Observer{
+public class Zone extends JButton implements Observer {
 
 	Secteur s;
 
@@ -32,6 +32,8 @@ public class Zone extends JButton implements Observer{
 	}
 
 	public void paint(Graphics g) {
+//		this.setSize(Option.getInstance().wfen/10, Option.getInstance().hfen/10);
+
 		int v = 255 / 4;
 
 		int ox = 0;
@@ -66,7 +68,7 @@ public class Zone extends JButton implements Observer{
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

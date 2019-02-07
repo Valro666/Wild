@@ -1,14 +1,16 @@
 package model;
 
-import java.util.Arrays;
+import java.util.Observable;
 
-public class Monde {
+public class Monde extends Observable{
 
 	Secteur[][] secteur = null;
 	int width;
 	int heigth;
 
 	public Monde(int a, int b, int option) {
+		
+		
 
 		width = a;
 		heigth = b;

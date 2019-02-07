@@ -1,7 +1,8 @@
 package model;
+import java.util.Observable;
 import java.util.Random;
 
-public class Secteur {
+public class Secteur extends Observable{
 
 	public int proie = 0;
 	public int rassacie = 0;
@@ -27,6 +28,8 @@ public class Secteur {
 
 	public void next() {
 
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 
