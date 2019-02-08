@@ -30,9 +30,25 @@ public class Zone extends JButton implements Observer {
 		// this.setBackground(Color.gray);
 		this.setOpaque(false);
 	}
+	
+	
+
+	public Secteur getS() {
+		return s;
+	}
+
+
+
+	public void setS(Secteur s) {
+		this.s = s;
+		
+	}
+
+
 
 	public void paint(Graphics g) {
-//		this.setSize(Option.getInstance().wfen/10, Option.getInstance().hfen/10);
+		// this.setSize(Option.getInstance().wfen/10,
+		// Option.getInstance().hfen/10);
 
 		int v = 255 / 4;
 
@@ -68,7 +84,7 @@ public class Zone extends JButton implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-
+		repaint();
 	}
 
 }

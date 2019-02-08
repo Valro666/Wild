@@ -36,6 +36,7 @@ public class Carte extends JPanel implements Observer {
 	public Carte(Surcouche s) {
 		// TODO Auto-generated constructor stub
 		init(s);
+		sur.addObserver(this);
 	}
 
 	@SuppressWarnings("unused")
@@ -61,6 +62,7 @@ public class Carte extends JPanel implements Observer {
 				int p = 0;
 				Color c = new Color(255 - (a * coul), 255 - (p * coul), 255 - (r * coul));
 				Secteur tmp = sur.getSecteur()[i][j];
+
 				if (true) {
 
 					a = tmp.affame;
@@ -78,20 +80,21 @@ public class Carte extends JPanel implements Observer {
 					r = 4;
 					p = 4;
 				}
+
+				tim[i][j] = new Zone(sur.getSecteur()[i][j] + "", tmp);
 				Zone t = tim[i][j];
-
-				t = new Zone(sur.getSecteur()[i][j] + "", tmp);
-
 				// t.setForeground(Color.pink);
 				action ac = new action(t, tmp);
 				t.addActionListener(ac);
 				// t.setPreferredSize(getSize());
-				// t.setSize(this.getWidth() / sur.getWidth(), this.getHeight() /
+				// t.setSize(this.getWidth() / sur.getWidth(), this.getHeight()
+				// /
 				// sur.getHeigth());
-				// t.setPreferredSize(new Dimension(this.getWidth() / sur.getWidth(),
+				// t.setPreferredSize(new Dimension(this.getWidth() /
+				// sur.getWidth(),
 				// this.getHeight() / sur.getHeigth()));
 
-//				t.setSize(new Dimension(10, 10));
+				// t.setSize(new Dimension(10, 10));
 				this.add(t);
 				// repaint();
 			}
@@ -100,10 +103,11 @@ public class Carte extends JPanel implements Observer {
 
 	public class action implements ActionListener {
 		JButton tin = null;
-		Secteur s = null;
+		Secteur sec = null;
 
-		public action(JButton jb, Secteur s) {
+		public action(JButton jb, Secteur ss) {
 			tin = jb;
+			sec = ss;
 		}
 
 		@Override
@@ -117,9 +121,15 @@ public class Carte extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		System.out.println("maj");
+		// System.out.println("maj");
 		this.removeAll();
 		init(sur);
+		// for (int x = 0; x < sur.getSecteur().length; x++) {
+		// for (int y = 0; y < sur.getSecteur()[x].length; y++) {
+		//
+		// tim[x][y].setS(sur.getSecteur()[x][y]);
+		// }
+		// }
 	}
 
 }

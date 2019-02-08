@@ -169,7 +169,8 @@ public class Fenetre extends JFrame implements Observer {
 
 		cartePnl = new JPanel();
 
-		// cartePnl.setSize(Option.getInstance().wfen, Option.getInstance().hfen);
+		// cartePnl.setSize(Option.getInstance().wfen,
+		// Option.getInstance().hfen);
 		cartePnl.setLayout(new FlowLayout());
 		cartePnl.setBackground(Color.DARK_GRAY);
 
@@ -177,10 +178,11 @@ public class Fenetre extends JFrame implements Observer {
 		// carte = new Carte(sur, cartePnl);
 		// cartePnl.add(carte);
 		// carte.setSize(Option.getInstance().wfen, Option.getInstance().hfen);
-		// cartePnl.setSize(Option.getInstance().wfen, Option.getInstance().hfen);
+		// cartePnl.setSize(Option.getInstance().wfen,
+		// Option.getInstance().hfen);
 		// cartePnl.setPreferredSize(cartePnl.getPreferredSize());
 		// mainContainer.add(cartePnl);// ,BorderLayout.CENTER);
-		carte.setPreferredSize(new Dimension(600,600));
+		carte.setPreferredSize(new Dimension(600, 600));
 		mainContainer.add(carte);
 
 		// Panel buttom
@@ -227,7 +229,7 @@ public class Fenetre extends JFrame implements Observer {
 
 				// cartePnl.add(carte);
 				// carte.revalidate();
-//				carte.repaint();
+				// carte.repaint();
 				System.out.println("1");
 			}
 		});
@@ -289,8 +291,8 @@ public class Fenetre extends JFrame implements Observer {
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		// TODO Auto-generated method stub
-		carte.update(arg0, arg1);
-		carte.setPreferredSize(new Dimension((int)(this.getWidth()*0.80),(int)(this.getHeight()*0.80)));
+		// carte.update(arg0, arg1);
+		carte.setPreferredSize(new Dimension((int) (this.getWidth() * 0.80), (int) (this.getHeight() * 0.80)));
 		this.revalidate();
 		this.repaint();
 	}
