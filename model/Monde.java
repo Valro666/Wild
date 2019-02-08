@@ -1,8 +1,8 @@
 package model;
 
-import java.util.Arrays;
+import java.util.Observable;
 
-public class Monde {
+public class Monde extends Observable {
 
 	Secteur[][] secteur = null;
 	int width;
@@ -27,6 +27,21 @@ public class Monde {
 			break;
 		}
 	}
+
+
+	public void nouveau(int a, int b) {
+		width = a;
+		heigth = b;
+		secteur = new Secteur[a][b];
+
+		for (int i = 0; i < a; i++) {
+			for (int j = 0; j < b; j++) {
+				secteur[i][j] = new Secteur();
+			}
+		}
+
+	}
+
 
 	public void pred_repro_global()
 	{
@@ -55,6 +70,7 @@ public class Monde {
 		mf.viderMondeFantome();
 	}
 	
+
 	@Override
 	public String toString() {
 		String s = "";

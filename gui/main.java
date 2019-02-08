@@ -8,6 +8,6 @@ public class main {
 		Monde world = new Monde(30, 30, 0);
 		Surcouche sur = new Surcouche(world);
 		// System.out.println(world);
-		new Fenetre(sur);
+		new Fenetre();//sur
 	}
 }

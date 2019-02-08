@@ -1,7 +1,9 @@
 package model;
+import java.util.Observable;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
+
 
 public class Secteur {
 	public int[] vie = new int[3];
@@ -10,6 +12,7 @@ public class Secteur {
 	public int[][] direction = new int[3][4];
 	public Monde world;
 	public Monde ghost_world;
+
 
 	public Secteur(int p, int a, int r) {
 		vie[0] = a;
@@ -30,6 +33,8 @@ public class Secteur {
 
 	public void next() {
 
+		this.setChanged();
+		this.notifyObservers();
 	}
 	
 
@@ -49,7 +54,7 @@ public class Secteur {
 			int pModif =0;
 			int aModif =0;
 			int rModif =0;
-			if(this.vie[2]!=4&&this.vie[1]>1) //AffamÈ(s) mange(nt)
+			if(this.vie[2]!=4&&this.vie[1]>1) //Affam√©(s) mange(nt)
 			{
 				int nb_changement = Math.min(4-this.vie[2], this.vie[0]);
 				rModif+=nb_changement;
@@ -57,7 +62,7 @@ public class Secteur {
 				aModif-=nb_changement;
 			}
 			
-			if(this.vie[0]+aModif<3&&this.vie[1]+pModif>1)//Reproduction des prÈdateurs
+			if(this.vie[0]+aModif<3&&this.vie[1]+pModif>1)//Reproduction des pr√©dateurs
 			{
 				int nb_changement = Math.min(2-((this.vie[0]+1+aModif)/2), this.vie[2]+rModif);
 				aModif+=nb_changement*2;
