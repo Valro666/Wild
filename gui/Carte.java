@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -36,7 +37,7 @@ public class Carte extends JPanel {
 		for (int i = 0; i < sur.getWidth(); i++) {
 			for (int j = 0; j < sur.getHeigth(); j++) {
 
-				int coul = 255 / 3;
+				int coul = 255 / 4;
 				int a = 0;
 				int r = 0;
 				int p = 0;
@@ -44,10 +45,10 @@ public class Carte extends JPanel {
 				Secteur tmp = sur.getSecteur()[i][j];
 				if (true) {
 
-					a = tmp.affame;
-					r = tmp.rassacie;
-					p = tmp.proie;
-					if ((a == 3 && r == 3) && r == 3) {
+					a = tmp.vie[0];
+					r = tmp.vie[2];
+					p = tmp.vie[1];
+					if ((a == 4 && r == 4) && r == 4) {
 						c = Color.BLACK;
 					} else if ((a == 0 && r == 0) && r == 0) {
 						c = Color.WHITE;
@@ -55,9 +56,9 @@ public class Carte extends JPanel {
 						c = new Color(255 - (a * coul), 255 - (p * coul), 255 - (r * coul));
 					}
 				} else {
-					a = 3;
-					r = 3;
-					p = 3;
+					a = 4;
+					r = 4;
+					p = 4;
 				}
 				Zone t = tim[i][j];
 
@@ -83,12 +84,14 @@ public class Carte extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			System.out.println(tin.getText());
-
-		}
+			//System.out.println(tin.getText());
+			sur.getWorld().pred_repro_global();
+			sur.getWorld().deplacementsSecteur_global();
+			repaint();
+		}	
 
 		public void paint(Graphics g) {
-			int v = 255 / 3;
+			int v = 255 / 4;
 			// g.setColor(new Color(s.getAffame() * v, 0, 0));
 			// g.drawRect(0, 0, 25, 25);
 		}

@@ -7,25 +7,54 @@ public class Monde {
 	Secteur[][] secteur = null;
 	int width;
 	int heigth;
+	public MondeFantome mf;
 
 	public Monde(int a, int b, int option) {
 
 		width = a;
 		heigth = b;
 		secteur = new Secteur[a][b];
+		mf = new MondeFantome(a,b);
 
 		switch (option) {
 		default:
 		case 0:
 			for (int i = 0; i < a; i++) {
 				for (int j = 0; j < b; j++) {
-					secteur[i][j] = new Secteur();
+					secteur[i][j] = new Secteur(j, i, this);
 				}
 			}
 			break;
 		}
 	}
 
+	public void pred_repro_global()
+	{
+		for (int i = 0; i < this.width; i++) {
+			for (int j = 0; j < this.heigth; j++) {
+				secteur[i][j].predation_reproduction();
+			}
+		}
+	}
+
+	public void deplacementsSecteur_global()
+	{
+		for (int i = 0; i < this.width; i++) {
+			for (int j = 0; j < this.heigth; j++) {
+				secteur[i][j].choisirDirectionsSecteur();
+				secteur[i][j].deplacementsSecteur();
+			}
+		}
+		for (int i = 0; i < this.width; i++) {
+			for (int j = 0; j < this.heigth; j++) {
+				secteur[i][j].vie[0]=mf.secteur[i][j][0];
+				secteur[i][j].vie[1]=mf.secteur[i][j][1];
+				secteur[i][j].vie[2]=mf.secteur[i][j][2];
+			}
+		}
+		mf.viderMondeFantome();
+	}
+	
 	@Override
 	public String toString() {
 		String s = "";

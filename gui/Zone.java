@@ -32,12 +32,12 @@ public class Zone extends JButton implements Observer{
 	}
 
 	public void paint(Graphics g) {
-		int v = 255 / 3;
+		int v = 255 / 4;
 
 		int ox = 0;
 		int oy = 0;
 		int larg = this.getWidth() / 3;
-		int haut = 1 + this.getHeight() / 3;
+		int haut = 1 + this.getHeight() / 4;
 		// Font f = new Font("mini", 1, 12);
 		// g.setFont(f);
 		// bg
@@ -45,18 +45,18 @@ public class Zone extends JButton implements Observer{
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		// affame
 		g.setColor(new Color(255, 0, 0));
-		g.fillRect(ox, oy, larg, haut * s.affame);
+		g.fillRect(ox, oy, larg, haut * s.vie[0]);
 
 		// proie
 		g.setColor(new Color(0, 255, 0));
-		g.fillRect(ox + larg, 0, larg, haut * s.proie);
+		g.fillRect(ox + larg, 0, larg, haut * s.vie[1]);
 
 		// rassacie
 		g.setColor(new Color(0, 0, 255));
-		g.fillRect(ox + larg + larg, 0, larg, haut * s.rassacie);
+		g.fillRect(ox + larg + larg, 0, larg, haut * s.vie[2]);
 		// texte
-		g.setColor(Color.BLACK);
-		g.drawString(s.toString(), 0, this.getHeight() / 2);
+		//g.setColor(Color.BLACK);
+		//g.drawString(s.toString(), 0, this.getHeight() / 2);
 
 		// box
 		g.setColor(Color.BLACK);
