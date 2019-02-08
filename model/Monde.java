@@ -36,7 +36,7 @@ public class Monde extends Observable {
 
 		for (int i = 0; i < a; i++) {
 			for (int j = 0; j < b; j++) {
-				secteur[i][j] = new Secteur();
+				secteur[i][j] = new Secteur(i,j,this);
 			}
 		}
 

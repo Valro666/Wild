@@ -182,7 +182,7 @@ public class Fenetre extends JFrame implements Observer {
 		// Option.getInstance().hfen);
 		// cartePnl.setPreferredSize(cartePnl.getPreferredSize());
 		// mainContainer.add(cartePnl);// ,BorderLayout.CENTER);
-		carte.setPreferredSize(new Dimension(600, 600));
+		// carte.setPreferredSize(new Dimension(600, 600));
 		mainContainer.add(carte);
 
 		// Panel buttom
@@ -212,25 +212,8 @@ public class Fenetre extends JFrame implements Observer {
 		// Events
 		reload_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// display/center the jdialog when the button is pressed
-				// world = new Monde(sizeX, sizeY, 0);
-				// sur = new Surcouche(world);
-				// sur = s;
-				// world = sur.getWorld();
-				// carte.removeAll();
-				// carte.validate();
-				// carte = new Carte(sur);
 
-				// cartePnl.removeAll();
-				// cartePnl.validate();
-				// cartePnl.add(carte);
-				// cartePnl.revalidate();
-				// cartePnl.repaint();
-
-				// cartePnl.add(carte);
-				// carte.revalidate();
-				// carte.repaint();
-				System.out.println("1");
+				sur.nouveau(sizeX, sizeY);
 			}
 		});
 
@@ -239,9 +222,9 @@ public class Fenetre extends JFrame implements Observer {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				if (e.getStateChange() == ItemEvent.SELECTED) {
-					cartePnl.setVisible(true);
+					carte.setVisible(true);
 				} else {
-					cartePnl.setVisible(false);
+					carte.setVisible(false);
 				}
 
 			}
@@ -252,20 +235,9 @@ public class Fenetre extends JFrame implements Observer {
 				// display/center the jdialog when the button is pressed
 				sizeX = Integer.parseInt(x_grille.getText());
 				sizeY = Integer.parseInt(y_grille.getText());
-				// world = new Monde(sizeX, sizeY, 0);
-				// sur = new Surcouche(world);
-				// world = sur.getWorld();
-				// carte = new Carte(sur);
 				sur.nouveau(sizeX, sizeY);
-				// cartePnl.removeAll();
-				// cartePnl.validate();
-				// cartePnl.add(carte);
-				// cartePnl.revalidate();
-				// cartePnl.repaint();
-				// System.out.println("reload");
-				// ;
-				// System.out.println(sur.getSecteur().length + "x" +
-				// sur.getSecteur()[0].length);
+				// sur.getWorld().mf.changerMF(sizeX, sizeY);
+
 			}
 		});
 
@@ -283,7 +255,9 @@ public class Fenetre extends JFrame implements Observer {
 
 		next_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				// sur.getWorld().pred_repro_global();
+				// sur.getWorld().deplacementsSecteur_global();
+				sur.next();
 			}
 		});
 	}

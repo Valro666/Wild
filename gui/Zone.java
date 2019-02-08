@@ -30,21 +30,15 @@ public class Zone extends JButton implements Observer {
 		// this.setBackground(Color.gray);
 		this.setOpaque(false);
 	}
-	
-	
 
 	public Secteur getS() {
 		return s;
 	}
 
-
-
 	public void setS(Secteur s) {
 		this.s = s;
-		
+
 	}
-
-
 
 	public void paint(Graphics g) {
 		// this.setSize(Option.getInstance().wfen/10,
@@ -59,7 +53,7 @@ public class Zone extends JButton implements Observer {
 		// Font f = new Font("mini", 1, 12);
 		// g.setFont(f);
 		// bg
-		g.setColor(Color.GRAY);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		// affame
 		g.setColor(new Color(255, 0, 0));
@@ -73,8 +67,8 @@ public class Zone extends JButton implements Observer {
 		g.setColor(new Color(0, 0, 255));
 		g.fillRect(ox + larg + larg, 0, larg, haut * s.vie[2]);
 		// texte
-		//g.setColor(Color.BLACK);
-		//g.drawString(s.toString(), 0, this.getHeight() / 2);
+		// g.setColor(Color.BLACK);
+		// g.drawString(s.toString(), 0, this.getHeight() / 2);
 
 		// box
 		g.setColor(Color.BLACK);

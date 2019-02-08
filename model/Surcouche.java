@@ -38,6 +38,15 @@ public class Surcouche extends Observable {
 	public void nouveau(int x, int y) {
 		// world = new Monde(x, y, 0);
 		world.nouveau(x, y);
+		getWorld().mf.changerMF(x, y);
+		this.setChanged();
+		this.notifyObservers();
+	}
+
+	public void next() {
+
+		getWorld().pred_repro_global();
+		getWorld().deplacementsSecteur_global();
 		this.setChanged();
 		this.notifyObservers();
 	}

@@ -114,11 +114,11 @@ public class Carte extends JPanel implements Observer {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			//System.out.println(tin.getText());
-			sur.getWorld().pred_repro_global();
-			sur.getWorld().deplacementsSecteur_global();
-			repaint();
-		}	
+			// //System.out.println(tin.getText());
+			// sur.getWorld().pred_repro_global();
+			// sur.getWorld().deplacementsSecteur_global();
+			// repaint();
+		}
 
 	}
 

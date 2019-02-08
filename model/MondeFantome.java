@@ -23,4 +23,12 @@ public class MondeFantome {
 			}
 		}
 	}
+	
+	public void changerMF(int a, int b)
+	{
+		width = a;
+		heigth = b;
+		secteur = new int[a][b][3];
+		viderMondeFantome();
+	}
 }
