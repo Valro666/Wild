@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -65,9 +66,9 @@ public class Carte extends JPanel implements Observer {
 
 				if (true) {
 
-					a = tmp.affame;
-					r = tmp.rassacie;
-					p = tmp.proie;
+					a = tmp.vie[0];
+					r = tmp.vie[2];
+					p = tmp.vie[1];
 					if ((a == 4 && r == 4) && r == 4) {
 						c = Color.BLACK;
 					} else if ((a == 0 && r == 0) && r == 0) {
@@ -113,9 +114,11 @@ public class Carte extends JPanel implements Observer {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
-			System.out.println(tin.getText());
-
-		}
+			//System.out.println(tin.getText());
+			sur.getWorld().pred_repro_global();
+			sur.getWorld().deplacementsSecteur_global();
+			repaint();
+		}	
 
 	}
 

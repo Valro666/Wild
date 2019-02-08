@@ -63,18 +63,18 @@ public class Zone extends JButton implements Observer {
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		// affame
 		g.setColor(new Color(255, 0, 0));
-		g.fillRect(ox, oy, larg, haut * s.affame);
+		g.fillRect(ox, oy, larg, haut * s.vie[0]);
 
 		// proie
 		g.setColor(new Color(0, 255, 0));
-		g.fillRect(ox + larg, 0, larg, haut * s.proie);
+		g.fillRect(ox + larg, 0, larg, haut * s.vie[1]);
 
 		// rassacie
 		g.setColor(new Color(0, 0, 255));
-		g.fillRect(ox + larg + larg, 0, larg, haut * s.rassacie);
+		g.fillRect(ox + larg + larg, 0, larg, haut * s.vie[2]);
 		// texte
-		g.setColor(Color.BLACK);
-		g.drawString(s.toString(), 0, this.getHeight() / 2);
+		//g.setColor(Color.BLACK);
+		//g.drawString(s.toString(), 0, this.getHeight() / 2);
 
 		// box
 		g.setColor(Color.BLACK);
