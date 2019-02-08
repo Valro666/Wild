@@ -5,8 +5,11 @@ public final class Option {
 	private static volatile Option instance = null;
 
 	private String xxx;
-	int wfen = 500;
-	int hfen = 500;
+	int wfen = 800;
+	int hfen = 600;
+	
+	int wpan = 500;
+	int hpan = 500;
 
 	/**
 	 * Constructeur de l'objet.

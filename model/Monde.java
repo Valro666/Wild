@@ -2,15 +2,13 @@ package model;
 
 import java.util.Observable;
 
-public class Monde extends Observable{
+public class Monde extends Observable {
 
 	Secteur[][] secteur = null;
 	int width;
 	int heigth;
 
 	public Monde(int a, int b, int option) {
-		
-		
 
 		width = a;
 		heigth = b;
@@ -26,6 +24,19 @@ public class Monde extends Observable{
 			}
 			break;
 		}
+	}
+
+	public void nouveau(int a, int b) {
+		width = a;
+		heigth = b;
+		secteur = new Secteur[a][b];
+
+		for (int i = 0; i < a; i++) {
+			for (int j = 0; j < b; j++) {
+				secteur[i][j] = new Secteur();
+			}
+		}
+
 	}
 
 	@Override

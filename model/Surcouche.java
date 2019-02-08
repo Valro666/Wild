@@ -1,6 +1,8 @@
 package model;
 
-public class Surcouche {
+import java.util.Observable;
+
+public class Surcouche extends Observable {
 
 	Monde world = null;
 
@@ -32,10 +34,17 @@ public class Surcouche {
 		// TODO Auto-generated method stub
 		return world.getSecteur();
 	}
-	
-//	public Secteur getSecteur() {
-//		// TODO Auto-generated method stub
-//		return world.getSecteur();
-//	}
+
+	public void nouveau(int x, int y) {
+		// world = new Monde(x, y, 0);
+		world.nouveau(x, y);
+		this.setChanged();
+		this.notifyObservers();
+	}
+
+	// public Secteur getSecteur() {
+	// // TODO Auto-generated method stub
+	// return world.getSecteur();
+	// }
 
 }
